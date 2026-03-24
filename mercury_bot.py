@@ -268,7 +268,7 @@ def check_inbox_account(combo: str) -> tuple:
                 "Referer": r2.url
             }, allow_redirects=False, timeout=15)
 
-        if any(x in r3.text for x in ["account or password is incorrect", "error", "Incorrect password", "Invalid credentials"]):
+        if any(x in r3.text for x in ["account or password is incorrect", "Incorrect password", "Invalid credentials"]):
             return (combo, {})
         if any(x in r3.text for x in ["identity/confirm", "Abuse", "signedout", "locked"]):
             return (combo, {})
@@ -382,7 +382,7 @@ def check_valid_account(combo: str) -> tuple:
                 "Referer": r2.url
             }, allow_redirects=False, timeout=15)
 
-        if any(x in r3.text for x in ["account or password is incorrect", "error", "Incorrect password", "Invalid credentials"]):
+        if any(x in r3.text for x in ["account or password is incorrect", "Incorrect password", "Invalid credentials"]):
             return (combo, False)
         if any(x in r3.text for x in ["identity/confirm", "Abuse", "signedout", "locked"]):
             return (combo, False)
